@@ -26,10 +26,20 @@ arch-based() {
 	echo " Installing xmonad, xmobar and dependencies"
 	echo " Arch-Based systems"
 	echo ""
+	echo " All needed programs are in the repos"
+	echo ""
 	sleep 2
 
-	sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar
-
+	while true; do
+		read -p " Install software [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
 }
 
 arch-xterm-dmenu() {
@@ -37,9 +47,24 @@ arch-xterm-dmenu() {
 	echo " Installing xterm and dmenu"
 	echo " Arch-Based systems"
 	echo ""
+	echo " xterm and dmenu are in the repos"
+	echo " this two programs are necessary for xmonad"
+	echo " if you don't want to install xterm you can change you terminal"
+	echo " before copy the custom file for xmonad in this menu then install dmenu"
+	echo " manualy when you start the xmonad session"
+	echo ""
 	sleep 2
 
-	sudo pacman -S --noconfirm --needed xterm dmenu
+	while true; do
+		read -p "Install Software [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				sudo pacman -S --noconfirm --needed xterm dmenu; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
 }
 
 debian-based() {
@@ -47,9 +72,21 @@ debian-based() {
 	echo " Installing xmonad, xmobar and dependencies"
 	echo " Debian-Based systems"
 	echo ""
+	echo " All needed programs are in the repos"
+	echo ""
+	echo ""
 	sleep 2
 
-	sudo apt install -y xmonad libghc-xmonad-contrib-dev xmobar
+	while true; do
+		read -p "Install Software [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				sudo apt install -y xmonad libghc-xmonad-contrib-dev xmobar; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
 }
 
 debian-xterm-demnu() {
@@ -57,9 +94,46 @@ debian-xterm-demnu() {
 	echo " Installing xterm and dmenu"
 	echo " Debian-Based systems"
 	echo ""
+	echo " xterm and dmenu are in the repos"
+	echo " this two programs are necessary for xmonad"
+	echo " if you don't want to install xterm you can change you terminal"
+	echo " before copy the custom file for xmonad in this menu then install dmenu"
+	echo " manualy when you start the xmonad session"
+	echo ""
 	sleep 2
 
-	sudo apt install -y xterm demnu
+	while true; do
+		read -p " Install Software [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				sudo apt install -y xterm demnu; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+}
+
+change-terminal() {
+	echo ""
+	echo " Change terminal in xmonad.sh custom file"
+	echo ""
+	echo " If you want to change the terminal you can do it here"
+	echo ""
+	sleep 2
+	pwd
+	while true; do
+		read -p " Change Terminal [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				read -p " Server user name for samba : " choice;
+				sed -i 's+myTerminal = ".*"+myTerminal = "'$choice'"+g' config-files/configs/xmonad.hs &&
+				echo " Your terminal ($choice) has been changed" || echo " Upsss!"; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
 }
 
 press_enter() {
@@ -94,6 +168,8 @@ until [ "$selection" = "0" ]; do
 	echo " 3 - Xmonad and Xmobar"
 	echo " 4 - Xterm and dmenu (if aren't installed)"
 	echo ""
+	echo " 5 - Change terminal in xmonad.sh file"
+	echo ""
 	echo " 0 - Back"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
@@ -105,6 +181,7 @@ until [ "$selection" = "0" ]; do
 		2) clear; arch-xterm-dmenu    ; press_enter ;;
 		3) clear; debian-based        ; press_enter ;;
 		4) clear; debian-xterm-dmenu  ; press_enter ;;
+		5) clear; change-terminal     ; press_enter ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac

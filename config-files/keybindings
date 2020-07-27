@@ -1,0 +1,20 @@
+# Stat with Spectrwm
+
+A small dynamic tiling window manager for X11 written in C and configured with a text configuration file. *spectrwm* is simple and easy to use.
+
+## Brief Keybindings
+
+The MODKEY4 = Windows Key
+
+| Keys        | Action               |
+| :---------- | :------------------- |
+| MOD+Enter   | Open Terminal (bash) |
+| MOD+q       | Close Window         |
+| MOD+Shit+q  | Exit Spectrwm        |
+| MOD+r       | Ranger Filemanager   |
+| MOD+v       | Open Vim             |
+
+For more keybindings check the spectrwm.conf file.
+
+(press q to exit)
+
