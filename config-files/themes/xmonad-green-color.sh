@@ -21,49 +21,43 @@
 #
 # -----------------------------------------------------------------
 
-echo " Changing xmonad color to Green them"
+echo " Changing xmonad and xmobar colors (Green theme)"
 echo ""
-sleep 2;
-
-# Border focus window
-sed -i 's/"border_focus": ".*",/"border_focus": "556064",/g' $HOME/.config/qtile/config.py &&
-echo " Border focus color has been changed" || echo " Upsss! We have a problems"
-echo ""
+sleep 2
 
 # Border unfocus window
-sed -i 's/"border_normal": ".*"/"border_normal": "2F3D44"/g' $HOME/.config/qtile/config.py &&
-echo " Border normal color has been changed" || echo " Upssssss! Not again!"
+sed -i 's/myNormColor =  ".*"/nyNormColor = "#2F3D44"/g' $HOME/.xmonad/xmonad.hs &&
+echo " Normal border color has been changed" || echo " Upsss! We have a problems"
+echo ""
+
+# Border focus window
+sed -i 's/myFocusColor = ".*"/myFocusColor = "#556064"/g' $HOME/.xmonad/xmonad.hs &&
+echo " Focus border color has been changed" || echo " Upssssss! Not again!"
 echo ""
 
 # TreeTab layout colors
-sed -i 's/bg_color = ".*",/bg_color = "222D31",/g' $HOME/.config/qtile/config.py &&
-sed -i 's/active_bg = ".*",/active_bg = "222D31",/g' $HOME/.config/qtile/config.py &&
-sed -i 's/active_fg = ".*",/active_fg = "1F618D",/g' $HOME/.config/qtile/config.py &&
-sed -i 's/inactive_gb = ".*",/inactive_bg = "222D31",/g' $HOME/.config/qtile/config.py &&
-sed -i 's/inactive_fg = ".*",/inactive_fg = "839192",/g' $HOME/.config/qtile/config.py &&
+sed -i 's/, activeColor         = ".*"/, activeColor         = "#222D31"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/, inactiveColor       = ".*"/, inactiveColor       = "#839192"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/, activeBorderColor   = ".*"/, activeBorderColor   = "#222D31"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/, inactiveBorderColor = ".*"/, inactiveBorderColor = "#222D31"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/, activeTextColor     = ".*"/, activeTextColor     = "#ffffff"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/, inactiveTextColor   = ".*"/, inactiveTextColor   = "#d0d0d0"/g' $HOME/.xmonad/xmonad.hs &&
 echo " TreeTab layout colors had been change" || echo " Someting is wrong with you!"
 echo ""
 
-# Bar and Widgets colors
-sed -i '/#startColors/,/#endColors/c\
-\#startColors\
-colors = [["#222D31", "#222D31"], # color 0 background\
-          ["#1F618D", "#1F618D"], # color 1 screen tab\
-          ["#839192", "#839192"], # color 2 font group names\
-          ["#AF601A", "#AF6015"], # color 3 widget cpu\
-          ["#5DADE2", "#5DADE2"], # color 4 widget tem\
-          ["#D7BDE2", "#D7BDE2"], # color 5 widget men\
-          ["#73C6B6", "#73C6B6"], # color 6 widget hdd\
-          ["#E59866", "#E59866"], # color 7 widget vol\
-          ["#E1ACFF", "#E1ACFF"], # color 8 widget bat\
-          ["#81A1C1", "#81A1C1"]] # color 9 widget date\
-\#endColors' $HOME/.config/qtile/config.py &&
-echo " Bar and Widgets colos had been change!" || echo " Shhh... Problems problems..."
+# Status bar brackgroun color
+sed -i 's/, bgColor = ".*"/, bgColor = "#222D31"/g' $HOME/.config/xmobar/xmobarrc &&
+echo " Bar background has been changed" || echo " This is not possible!!!"
+echo ""
+
+# Status bar fg color
+sed -i 's/, fgColor = ".*"/, fgColor = "#556064"/g' $HOME/.config/xmobar/xmobarrc &&
+echo " FG color has been changed" || echo " Not again!!!"
 echo ""
 
 ## dmenu custom
-sed -i 's/nb="-nb #.*"/nb="-nb #222D31"/g' ~/.config/qtile/sysact.sh &&
-sed -i 's/sb="-sb #.*"/sb="-sb #222D31"/g' ~/.config/qtile/sysact.sh &&
-sed -i 's/nf="-nf #.*"/nf="-nf #4D5656"/g' ~/.config/qtile/sysact.sh &&
+sed -i 's/nb="-nb #.*"/nb="-nb #222D31"/g' $HOME/.xmonad/sysact.sh &&
+sed -i 's/sb="-sb #.*"/sb="-sb #222D31"/g' $HOME/.xmonad/sysact.sh &&
+sed -i 's/nf="-nf #.*"/nf="-nf #4D5656"/g' $HOME/.xmonad/sysact.sh &&
 echo " dmenu (sysact) colors has canged"
 echo ""

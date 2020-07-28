@@ -121,7 +121,7 @@ change-terminal() {
 	echo " If you want to change the terminal you can do it here"
 	echo ""
 	sleep 2
-	pwd
+
 	while true; do
 		read -p " Change Terminal [y - n] : " yn
 		case $yn in

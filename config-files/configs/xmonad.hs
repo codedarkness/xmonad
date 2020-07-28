@@ -165,7 +165,7 @@ grid     = renamed [Replace "grid"]
 tabs     = renamed [Replace "tabs"]
            $ tabbed shrinkText myTabConfig
   where
-    myTabConfig = def { fontName            = "xft:Monospae:regular:pixelsize=11"
+    myTabConfig = def { fontName            = "xft:Noto:regular:pixelsize=11"
                       , activeColor         = "#222D31"
                       , inactiveColor       = "#839192"
                       , activeBorderColor   = "#222D31"

@@ -70,6 +70,29 @@ themes() {
 	config-files/themes/themes.sh
 }
 
+change-terminal() {
+	echo ""
+	echo " Change terminal in xmonad.sh custom file"
+	echo ""
+	echo " change to your preffer terminal here before copy"
+	echo " the custom xmonad.sh file"
+	echo ""
+	sleep 2
+
+	while true; do
+		read -p " Change Terminal [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				read -p " Which is your preffer termianl : " choice;
+				sed -i 's+myTerminal = ".*"+myTerminal = "'$choice'"+g' config-files/configs/xmonad.hs &&
+				echo " Your terminal ($choice) has been changed" || echo " Upsss!"; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+}
+
 keybindings() {
 	less config-files/configs/keybindings
 }
@@ -101,7 +124,8 @@ until [ "$selection" = "0" ]; do
 	echo " 1 - Install xmonad and xmobar"
 	echo " 2 - Copy (custom) config files"
 	echo " 3 - Themes"
-	echo " 4 - Keybindings"
+	echo " 4 - Change Terminal"
+	echo " 5 - Keybindings"
 	echo ""
 	echo " 0 - Exit"
 	echo ""
@@ -110,10 +134,11 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; install-xmonad ;;
-		2) clear; copy-files     ;;
-		3) clear; themes         ;;
-		4) clear; keybindings    ;;
+		1) clear; install-xmonad  ;;
+		2) clear; copy-files      ;;
+		3) clear; themes          ;;
+		4) clear; change-terminal  ; press_enter ;;
+		5) clear; keybindings     ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac
