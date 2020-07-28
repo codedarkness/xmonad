@@ -128,12 +128,12 @@ mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 -- Defining layouts
 tall     = renamed [Replace "tall"]
            $ limitWindows 12
-           $ mySpacing 5
+           $ mySpacing 6
            $ ResizableTall 1 (3/100) (1/2) []
 magnify  = renamed [Replace "magnify"]
            $ magnifier
            $ limitWindows 12
-           $ mySpacing 5
+           $ mySpacing 6
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ limitWindows 20 Full
@@ -141,7 +141,7 @@ floats   = renamed [Replace "floats"]
            $ limitWindows 20 simplestFloat
 grid     = renamed [Replace "grid"]
            $ limitWindows 12
-           $ mySpacing 5
+           $ mySpacing 6
            $ mkToggle (single MIRROR)
            $ Grid (16/10)
 tabs     = renamed [Replace "tabs"]
