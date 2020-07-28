@@ -1,10 +1,20 @@
-  -- Base
+--  ____             _                         ____          _
+-- |  _ \  __ _ _ __| | ___ __   ___  ___ ___ / ___|___   __| | ___
+-- | | | |/ _' | '__| |/ / '_ \ / _ \/ __/ __| |   / _ \ / _' |/ _ \
+-- | |_| | (_| | |  |   <| | | |  __/\__ \__ \ |__| (_) | (_| |  __/
+-- |____/ \__,_|_|  |_|\_\_| |_|\___||___/___/\____\___/ \__,_|\___|
+-- -----------------------------------------------------------------
+-- https://darkncesscode.com
+-- https://github.com/codedarkness
+-- -----------------------------------------------------------------
+
+-- Base
 import XMonad
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
-    -- Actions
+-- Actions
 import XMonad.Actions.CopyWindow (kill1, killAllOtherCopies)
 import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
 import XMonad.Actions.GridSelect
@@ -16,14 +26,14 @@ import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.WithAll (sinkAll, killAll)
 import qualified XMonad.Actions.Search as S
 
-    -- Data
+-- Data
 import Data.Char (isSpace)
 import Data.Monoid
 import Data.Maybe (isJust)
 import Data.Tree
 import qualified Data.Map as M
 
-    -- Hooks
+-- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
@@ -33,7 +43,7 @@ import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
 
-    -- Layouts
+-- Layouts
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spiral
@@ -41,7 +51,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 
-    -- Layouts modifiers
+-- Layouts modifiers
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
 import XMonad.Layout.Magnifier
@@ -55,7 +65,7 @@ import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
 import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
 
-    -- Prompt
+-- Prompt
 import XMonad.Prompt
 import XMonad.Prompt.Input
 import XMonad.Prompt.FuzzyMatch
@@ -66,7 +76,7 @@ import XMonad.Prompt.Ssh
 import XMonad.Prompt.XMonad
 import Control.Arrow (first)
 
-    -- Utilities
+-- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
@@ -75,29 +85,37 @@ import XMonad.Util.SpawnOnce
 myFont :: String
 myFont = "xft:Noto:size=11:antialias=true:hinting=true"
 
+-- Sets modkey to super/windows key
 myModMask :: KeyMask
-myModMask = mod4Mask      -- Sets modkey to super/windows key
+myModMask = mod4Mask
 
+-- Sets default terminal
 myTerminal :: String
-myTerminal = "terminal"   -- Sets default terminal
+myTerminal = "terminal"
 
+-- Sets firefox as browser for tree select
 myBrowser :: String
-myBrowser = "brave"      -- Sets firefox as browser for tree select
+myBrowser = "brave"
 
+-- Sets vim as editor for tree select
 myEditor :: String
-myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
+myEditor = myTerminal ++ " -e vim "
 
+-- Sets border width for windows
 myBorderWidth :: Dimension
-myBorderWidth = 1          -- Sets border width for windows
+myBorderWidth = 1
 
+-- Border color of normal windows
 myNormColor :: String
-myNormColor   = "#2F3D44"  -- Border color of normal windows
+myNormColor   = "#2F3D44"
 
+-- Border color of focused windows
 myFocusColor :: String
-myFocusColor  = "#556064"  -- Border color of focused windows
+myFocusColor  = "#556064"
 
+-- Setting this for use in xprompts
 altMask :: KeyMask
-altMask = mod1Mask         -- Setting this for use in xprompts
+altMask = mod1Mask
 
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset

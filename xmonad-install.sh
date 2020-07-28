@@ -31,7 +31,12 @@ copy-files() {
 	echo " xmonad and xmobar"
 	sleep 2
 
-	mkdir $HOME/.config/xmobar
+
+	## Xmonad directory
+	### Check for dir, if not found create it using the mkdir ###
+	dldir="$HOME/.xmonad"
+	[ ! -d "$dldir" ] && mkdir -p "$dldir" &&
+	echo " xmonad directory was created" || echo "Shhhh! not again"
 
 	cp -af config-files/configs/xmonad.hs $HOME/.xmonad/ &&
 	echo " new xmonad.sh has been copied" || echo " Hooooooo!"
@@ -43,6 +48,13 @@ copy-files() {
 
 	cp -af config-files/configs/sysact.sh $HOME/.xmonad/ &&
 	echo " system account file has been copied" || echo " Not again!!"
+	echo ""
+
+	## Xmobar directory
+	### Check for dir, if not found create it using the mkdir ###
+	dldir="$HOME/.config/xmobar"
+	[ ! -d "$dldir" ] && mkdir -p "$dldir" &&
+	echo " xmobar directory was created" || echo "Shhhh! not again"
 	echo ""
 
 	cp -af config-files/configs/xmobarrc $HOME/.config/xmobar/ &&

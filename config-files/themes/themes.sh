@@ -24,15 +24,15 @@
 # -----------------------------------------------------------------
 
 dark-theme() {
-	config-files/themes/spectrwm-dark-theme.sh
+	config-files/themes/xmonad-dark-theme.sh
 }
 
 dracula-theme() {
-	config-files/themes/spectrwm-dracula-theme.sh
+	config-files/themes/xmonad-dracula-theme.sh
 }
 
 green-theme() {
-	config-files/themes/spectrwm-green-theme.sh
+	config-files/themes/xmonad-green-theme.sh
 }
 
 press_enter() {
@@ -49,14 +49,20 @@ incorrect_selection() {
 until [ "$selection" = "0" ]; do
 	clear
 	echo ""
-	echo " -----------------------------------------------"
-	echo " ###-----------   Color  Themes   -----------###"
-	echo " ## Spectrwm -- Tiling Window Manager for X11 ##"
-	echo " -----------------------------------------------"
+	echo " DarknessCode"
+	echo "                                       _           _                 "
+	echo "                                      | |         | |                "
+	echo " __  ___ __ ___   ___  _ __   __ _  __| | ___ ___ | | ___  _ __ ___  "
+	echo " \ \/ / '_ ' _ \ / _ \| '_ \ / _' |/ _' |/ __/ _ \| |/ _ \| '__/ __| "
+	echo "  >  <| | | | | | (_) | | | | (_| | (_| | (_| (_) | | (_) | |  \__ \ "
+	echo " /_/\_\_| |_| |_|\___/|_| |_|\__,_|\__,_|\___\___/|_|\___/|_|  |___/ "
+	echo ""
+	echo " change color for xmonad"
 	echo ""
 	echo " 1 - Dark Color Scheme"
 	echo " 2 - Dracula Color Scheme"
 	echo " 3 - Green Color Scheme"
+	echo ""
 	echo " 0 - Back"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
