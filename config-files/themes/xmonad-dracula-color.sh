@@ -61,3 +61,5 @@ sed -i 's/sb="-sb #.*"/sb="-sb #1E1F29"/g' $HOME/.xmonad/sysact.sh &&
 sed -i 's/nf="-nf #.*"/nf="-nf #383A59"/g' $HOME/.xmonad/sysact.sh &&
 echo " dmenu (sysact) colors has canged"
 echo ""
+
+echo " Restart xmonad (Mod+Shift+r)"

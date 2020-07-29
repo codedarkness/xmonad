@@ -24,15 +24,15 @@
 # -----------------------------------------------------------------
 
 dark-theme() {
-	config-files/themes/xmonad-dark-theme.sh
+	config-files/themes/xmonad-dark-color.sh
 }
 
 dracula-theme() {
-	config-files/themes/xmonad-dracula-theme.sh
+	config-files/themes/xmonad-dracula-color.sh
 }
 
 green-theme() {
-	config-files/themes/xmonad-green-theme.sh
+	config-files/themes/xmonad-green-color.sh
 }
 
 press_enter() {
