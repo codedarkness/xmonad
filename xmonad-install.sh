@@ -36,13 +36,13 @@ copy-files() {
 	### Check for dir, if not found create it using the mkdir ###
 	dldir="$HOME/.xmonad"
 	[ ! -d "$dldir" ] && mkdir -p "$dldir" &&
-	echo " xmonad directory was created" || echo "Shhhh! not again"
+	echo " xmonad directory was created" || echo " $dldir already exist!"
 
 	cp -af config-files/configs/xmonad.hs $HOME/.xmonad/ &&
 	echo " new xmonad.sh has been copied" || echo " Hooooooo!"
 	echo ""
 
-	cp -af config-files/configs/xmonadctl.sh $HOME/.xmonad/ &&
+	cp -af config-files/configs/xmonadctl.hs $HOME/.xmonad/ &&
 	echo " xmonadctl.sh file has been copied" || echo " Not again!!"
 	echo ""
 
@@ -52,9 +52,9 @@ copy-files() {
 
 	## Xmobar directory
 	### Check for dir, if not found create it using the mkdir ###
-	dldir="$HOME/.config/xmobar"
-	[ ! -d "$dldir" ] && mkdir -p "$dldir" &&
-	echo " xmobar directory was created" || echo "Shhhh! not again"
+	dldir2="$HOME/.config/xmobar"
+	[ ! -d "$dldir2" ] && mkdir -p "$dldir2" &&
+	echo " xmobar directory was created" || echo " $dldir2 already exist!"
 	echo ""
 
 	cp -af config-files/configs/xmobarrc $HOME/.config/xmobar/ &&
@@ -94,7 +94,7 @@ change-terminal() {
 }
 
 keybindings() {
-	less config-files/configs/keybindings
+	less config-files/keybindings
 }
 
 press_enter() {
@@ -135,7 +135,7 @@ until [ "$selection" = "0" ]; do
 
 	case $selection in
 		1) clear; install-xmonad  ;;
-		2) clear; copy-files      ;;
+		2) clear; copy-files       ; press_enter ;;
 		3) clear; themes          ;;
 		4) clear; change-terminal  ; press_enter ;;
 		5) clear; keybindings     ;;

@@ -46,7 +46,7 @@ choice=$(
 case "$choice" in
 	Cancel)	exit 1 ;;
 	Lock-Screen)	blurlock ;;
-	Exit)		killall xmonad ;;
+	Exit)		kill -TERM $(pidof -s xmonad) ;;
 	Shutdown)	systemctl poweroff ;;
 	Reboot)		systemctl reboot ;;
 	Suspend)	systemctl suspend ;;

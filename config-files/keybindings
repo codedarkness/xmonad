@@ -1,20 +1,23 @@
-# Stat with Spectrwm
+# Stat with xmonad
 
-A small dynamic tiling window manager for X11 written in C and configured with a text configuration file. *spectrwm* is simple and easy to use.
+Is a dynamically tiling X11 window manager that is written and configured in Haskell. In a normal WM, you spend half your time aligning and searching for windows. xmonad makes work easier, by automating this.
 
 ## Brief Keybindings
 
 The MODKEY4 = Windows Key
 
-| Keys        | Action               |
-| :---------- | :------------------- |
-| MOD+Enter   | Open Terminal (bash) |
-| MOD+q       | Close Window         |
-| MOD+Shit+q  | Exit Spectrwm        |
-| MOD+r       | Ranger Filemanager   |
-| MOD+v       | Open Vim             |
+| Keybinding  | Action              |
+| :---------  | :------------------ |
+| MOD+Enter   | Open terminal       |
+| MOD+r       | Ranger File Manager |
+| MOD+v       | Vim                 |
+| MOD+Shift+o | dmenu_recency       |
+| MOD+0       | System account      |
+| MOD+F12     | Lock screen         |
+| MOD+Shift+r | Re-start xmonad     |
+| MOD+Shift+q | Exit xmonad         |
 
-For more keybindings check the spectrwm.conf file.
+For more keybindings check /.xmonad/xmonad.hs file.
 
 (press q to exit)
 

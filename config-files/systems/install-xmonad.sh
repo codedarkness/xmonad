@@ -56,10 +56,23 @@ arch-xterm-dmenu() {
 	sleep 2
 
 	while true; do
-		read -p "Install Software [y - n] : " yn
+		read -p " Install xterm (terminal) [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				sudo pacman -S --noconfirm --needed xterm dmenu; break ;;
+				sudo pacman -S --noconfirm --needed xterm; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+
+	echo ""
+
+	while true; do
+		read -p " Install dmenu [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				sudo pacman -S --noconfirm --needed dmenu; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
@@ -89,7 +102,7 @@ debian-based() {
 	done
 }
 
-debian-xterm-demnu() {
+debian-xterm-dmenu() {
 	echo ""
 	echo " Installing xterm and dmenu"
 	echo " Debian-Based systems"
@@ -103,10 +116,23 @@ debian-xterm-demnu() {
 	sleep 2
 
 	while true; do
-		read -p " Install Software [y - n] : " yn
+		read -p " Install xterm (terminal) [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				sudo apt install -y xterm demnu; break ;;
+				sudo apt install -y xterm; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+
+	echo ""
+
+	while true; do
+		read -p " Install dmenu [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				sudo apt install -y demnu; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;

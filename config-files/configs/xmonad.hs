@@ -146,12 +146,12 @@ mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 -- Defining layouts
 tall     = renamed [Replace "tall"]
            $ limitWindows 12
-           $ mySpacing 6
+           $ mySpacing 3
            $ ResizableTall 1 (3/100) (1/2) []
 magnify  = renamed [Replace "magnify"]
            $ magnifier
            $ limitWindows 12
-           $ mySpacing 6
+           $ mySpacing 3
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ limitWindows 20 Full
@@ -159,7 +159,7 @@ floats   = renamed [Replace "floats"]
            $ limitWindows 20 simplestFloat
 grid     = renamed [Replace "grid"]
            $ limitWindows 12
-           $ mySpacing 6
+           $ mySpacing 3
            $ mkToggle (single MIRROR)
            $ Grid (16/10)
 tabs     = renamed [Replace "tabs"]
@@ -270,7 +270,7 @@ myKeys =
 -- MAIN --
 main :: IO ()
 main = do
-    xmproc <- spawnPipe "xmobar -x 0 /home/achim/.config/xmobar/xmobarrc"
+    xmproc <- spawnPipe "xmobar -x 0 ./.config/xmobar/xmobarrc"
     xmonad $ ewmh def
         { manageHook = ( isFullscreen --> doFullFloat ) <+> manageDocks
         , handleEventHook    = serverModeEventHookCmd
@@ -292,7 +292,7 @@ main = do
                         , ppHidden = xmobarColor  "#81A1C1" ""                -- Hidden workspaces in xmobar (with windows)
                         , ppHiddenNoWindows = xmobarColor "#839192" ""        -- Hidden workspaces (no windows)
                         , ppTitle = xmobarColor "#81A1C1" "" . shorten 60     -- Title of active window in xmobar
-                        , ppSep =  "<fc=#666666> <fn=2>:</fn> </fc>"          -- Separators in xmobar
+                        , ppSep =  "<fc=#666666> <fn=2>.</fn> </fc>"          -- Separators in xmobar
                         , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"  -- Urgent workspace
                         , ppOrder  = \(ws:l:t:ex) -> [ws]++ex++[t]
                         }

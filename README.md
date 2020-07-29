@@ -20,6 +20,23 @@ For more information of xmonad [here](https://xmonad.org/) and documentations [h
 
 ![xmonad - darknesscode](https://github.com/codedarkness/xmonad/blob/master/config-files/xmonad-b.png)
 
+## Software
+
+Here are the software that always install in my systems:
+
+* Compton
+* Ranger file manager
+* Nitrogen
+* Volumeicon
+* nm-applet
+* xfce4-power-manager
+* pacmac-tray
+* xautolock (blurlock)
+* ff-theme-util
+* fix_xcursor
+* bash (can be change)
+* dnust
+
 ## Helpfull keybindings for this installation
 
 | Keybinding  | Action              |
@@ -35,4 +52,10 @@ For more information of xmonad [here](https://xmonad.org/) and documentations [h
 
 Add your keybindings in /.xmonda/xmonad.hs. And change your terminal before installing
 
-Too lazzy! that's why i user *Manjaro* o *Debian* to install my base system and work from that.
+## Note
+
+This is basic build of xmonad, you need to add your own stuff in xmonad.hs to create you own work flow. So, this is just a starting point to build your awesome system!
+
+I use this built, and it's working. If you have an error(s) check in /.xmonad/xmonad.errors to know what is the problem.
+
+> Too lazzy! to install Arch Linux from scratch; that's why i use *Manjaro-Architec* o *Debian* to install my base system and work from that.
