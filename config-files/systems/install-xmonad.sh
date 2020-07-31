@@ -34,7 +34,7 @@ arch-based() {
 		read -p " Install software [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar; break ;;
+				sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar ghc; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
