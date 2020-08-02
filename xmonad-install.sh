@@ -29,6 +29,7 @@ copy-files() {
 	echo ""
 	echo " Copy new config (custom) files"
 	echo " xmonad and xmobar"
+	echo ""
 	sleep 2
 
 
@@ -44,6 +45,10 @@ copy-files() {
 
 	cp -af config-files/configs/xmonadctl.hs $HOME/.xmonad/ &&
 	echo " xmonadctl.sh file has been copied" || echo " Not again!!"
+	echo ""
+
+	cp -af config-files/configs/autostart.sh $HOME/.xmonad/ &&
+	echo " autostart file has been copied" || echo " No way!!! somting is not good!"
 	echo ""
 
 	cp -af config-files/configs/sysact.sh $HOME/.xmonad/ &&
@@ -64,6 +69,21 @@ copy-files() {
 	cp -af config-files/configs/haskell_20.xpm $HOME/.config/xmobar/ &&
 	echo " xmonad icon has been copied" || echo " Did you brake something!"
 	echo ""
+
+	while true; do
+		read -p " Copy (custome) Xresources [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				cp -af config-files/configs/Xresources $HOME/.Xresources &&
+				echo " Xresourses has been copied" || echo " Something is not well!" ; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+
+	echo ""
+
 }
 
 themes() {

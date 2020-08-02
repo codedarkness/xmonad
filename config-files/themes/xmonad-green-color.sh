@@ -26,23 +26,13 @@ echo ""
 sleep 2
 
 # Border unfocus window
-sed -i 's/myNormColor =  ".*"/nyNormColor = "#2F3D44"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/normalBorderColor   = ".*"/normalBorderColor   = "#2F3D44"/g' $HOME/.xmonad/xmonad.hs &&
 echo " Normal border color has been changed" || echo " Upsss! We have a problems"
 echo ""
 
 # Border focus window
-sed -i 's/myFocusColor = ".*"/myFocusColor = "#556064"/g' $HOME/.xmonad/xmonad.hs &&
+sed -i 's/focusedBorderColor  = ".*"/focusedBorderColor  = "#556064"/g' $HOME/.xmonad/xmonad.hs &&
 echo " Focus border color has been changed" || echo " Upssssss! Not again!"
-echo ""
-
-# TreeTab layout colors
-sed -i 's/, activeColor         = ".*"/, activeColor         = "#222D31"/g' $HOME/.xmonad/xmonad.hs &&
-sed -i 's/, inactiveColor       = ".*"/, inactiveColor       = "#839192"/g' $HOME/.xmonad/xmonad.hs &&
-sed -i 's/, activeBorderColor   = ".*"/, activeBorderColor   = "#222D31"/g' $HOME/.xmonad/xmonad.hs &&
-sed -i 's/, inactiveBorderColor = ".*"/, inactiveBorderColor = "#222D31"/g' $HOME/.xmonad/xmonad.hs &&
-sed -i 's/, activeTextColor     = ".*"/, activeTextColor     = "#ffffff"/g' $HOME/.xmonad/xmonad.hs &&
-sed -i 's/, inactiveTextColor   = ".*"/, inactiveTextColor   = "#d0d0d0"/g' $HOME/.xmonad/xmonad.hs &&
-echo " TreeTab layout colors had been change" || echo " Someting is wrong with you!"
 echo ""
 
 # Status bar brackgroun color
