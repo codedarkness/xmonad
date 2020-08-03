@@ -21,10 +21,10 @@
 #
 # -----------------------------------------------------------------
 
-arch-based() {
+install-xmonad() {
 	echo ""
 	echo " Installing xmonad, xmobar and dependencies"
-	echo " Arch-Based systems"
+	echo " Arch, Debian Based systems"
 	echo ""
 	echo " All needed programs are in the repos"
 	echo ""
@@ -34,7 +34,25 @@ arch-based() {
 		read -p " Install software [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar ghc; break ;;
+				if ! location="$(type -p "xterm")" || [ -z "xterm" ]; then
+
+					# check if pacman is installed
+					if which pacman > /dev/null; then
+
+						sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar ghc
+
+					fi
+
+					# check if apt is installed
+					if which apt > /dev/null; then
+
+						sudo apt install -y xmonad libghc-xmonad-contrib-dev xmobar ghc
+
+					fi
+
+				else
+					echo " nothing to do!"
+				fi; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
@@ -42,10 +60,10 @@ arch-based() {
 	done
 }
 
-arch-xterm-dmenu() {
+install-xterm-dmenu() {
 	echo ""
 	echo " Installing xterm and dmenu"
-	echo " Arch-Based systems"
+	echo " Arch, Debian Based systems"
 	echo ""
 	echo " xterm and dmenu are in the repos"
 	echo " this two programs are necessary for xmonad"
@@ -59,7 +77,25 @@ arch-xterm-dmenu() {
 		read -p " Install xterm (terminal) [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				sudo pacman -S --noconfirm --needed xterm; break ;;
+				if ! location="$(type -p "xterm")" || [ -z "xterm" ]; then
+
+					# check if pacman is installed
+					if which pacman > /dev/null; then
+
+						sudo pacman -S --noconfirm xterm
+
+					fi
+
+					# check if apt is installed
+					if which apt > /dev/null; then
+
+						sudo apt install -y xterm
+
+					fi
+
+				else
+					echo " nothing to do!"
+				fi; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
@@ -72,54 +108,25 @@ arch-xterm-dmenu() {
 		read -p " Install dmenu [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				sudo pacman -S --noconfirm --needed dmenu; break ;;
-			[Nn]* )
-				break ;;
-			* ) echo "Please answer yes or no." ;;
-		esac
-	done
-}
+				if ! location="$(type -p "dmenu")" || [ -z "dmenu" ]; then
 
-debian-based() {
-	echo ""
-	echo " Installing xmonad, xmobar and dependencies"
-	echo " Debian-Based systems"
-	echo ""
-	echo " All needed programs are in the repos"
-	echo ""
-	echo ""
-	sleep 2
+					# check if pacman is installed
+					if which pacman > /dev/null; then
 
-	while true; do
-		read -p "Install Software [y - n] : " yn
-		case $yn in
-			[Yy]* )
-				sudo apt install -y xmonad libghc-xmonad-contrib-dev xmobar; break ;;
-			[Nn]* )
-				break ;;
-			* ) echo "Please answer yes or no." ;;
-		esac
-	done
-}
+						sudo pacman -S --noconfirm dmenu
 
-debian-xterm-dmenu() {
-	echo ""
-	echo " Installing xterm and dmenu"
-	echo " Debian-Based systems"
-	echo ""
-	echo " xterm and dmenu are in the repos"
-	echo " this two programs are necessary for xmonad"
-	echo " if you don't want to install xterm you can change you terminal"
-	echo " before copy the custom file for xmonad in this menu then install dmenu"
-	echo " manualy when you start the xmonad session"
-	echo ""
-	sleep 2
+					fi
 
-	while true; do
-		read -p " Install xterm (terminal) [y - n] : " yn
-		case $yn in
-			[Yy]* )
-				sudo apt install -y xterm; break ;;
+					# check if apt is installed
+					if which apt > /dev/null; then
+
+						sudo apt install -y dmenu
+
+					fi
+
+				else
+					echo " nothing to do!"
+				fi; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
@@ -127,17 +134,6 @@ debian-xterm-dmenu() {
 	done
 
 	echo ""
-
-	while true; do
-		read -p " Install dmenu [y - n] : " yn
-		case $yn in
-			[Yy]* )
-				sudo apt install -y demnu; break ;;
-			[Nn]* )
-				break ;;
-			* ) echo "Please answer yes or no." ;;
-		esac
-	done
 }
 
 change-terminal() {
@@ -186,15 +182,10 @@ until [ "$selection" = "0" ]; do
 	echo ""
 	echo " install xmonad and xmobar in arch and debian systems"
 	echo ""
-	echo " Arch-Based"
 	echo " 1 - Xmonad and Xmobar"
 	echo " 2 - Xterm and dmenu (if aren't installed)"
 	echo ""
-	echo " Debian-Based"
-	echo " 3 - Xmonad and Xmobar"
-	echo " 4 - Xterm and dmenu (if aren't installed)"
-	echo ""
-	echo " 5 - Change terminal in xmonad.sh file"
+	echo " 3 - Change terminal in xmonad.sh file"
 	echo ""
 	echo " 0 - Back"
 	echo ""
@@ -203,11 +194,9 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; arch-based          ; press_enter ;;
-		2) clear; arch-xterm-dmenu    ; press_enter ;;
-		3) clear; debian-based        ; press_enter ;;
-		4) clear; debian-xterm-dmenu  ; press_enter ;;
-		5) clear; change-terminal     ; press_enter ;;
+		1) clear; install-xmonad      ; press_enter ;;
+		2) clear; install-xterm-dmenu ; press_enter ;;
+		3) clear; change-terminal     ; press_enter ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac

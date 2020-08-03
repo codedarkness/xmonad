@@ -11,9 +11,9 @@
 #
 #        FILE: themes.sh
 #       USAGE: ./themes.sh - sub menu (script) of
-#              spectrwm_install.sh
+#              xmonad-install.sh
 #
-# DESCRIPTION: change the color of spectrwm and colors
+# DESCRIPTION: change the color of xmonad and colors
 #	       for Xresources to match terminal colors
 #
 #      AUTHOR: DarknessCode
