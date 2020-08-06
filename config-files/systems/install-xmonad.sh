@@ -31,33 +31,36 @@ install-xmonad() {
 	sleep 2
 
 	while true; do
-		read -p " Install software [y - n] : " yn
+		read -p " Install Xmonad [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				if ! location="$(type -p "xterm")" || [ -z "xterm" ]; then
+				if ! location="$(type -p "xmonad")" || [ -z "xmonad" ]; then
 
 					# check if pacman is installed
 					if which pacman > /dev/null; then
 
-						sudo pacman -S --noconfirm --needed xmonad xmonad-contrib xmobar ghc
-
-					fi
+						sudo pacman -S --noconfirm xmonad xmonad-contrib xmobar ghc
 
 					# check if apt is installed
-					if which apt > /dev/null; then
+					elif which apt > /dev/null; then
 
 						sudo apt install -y xmonad libghc-xmonad-contrib-dev xmobar ghc
 
+					else
+
+						echo " Your system is not Arch or Debian Based System"
 					fi
 
-				else
-					echo " nothing to do!"
-				fi; break ;;
+					else
+						echo " Nothing to do! Xmonad is installed in your System"
+				fi ; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
 		esac
 	done
+
+	echo ""
 }
 
 install-xterm-dmenu() {
@@ -74,7 +77,7 @@ install-xterm-dmenu() {
 	sleep 2
 
 	while true; do
-		read -p " Install xterm (terminal) [y - n] : " yn
+		read -p " Install Xterm [y - n] : " yn
 		case $yn in
 			[Yy]* )
 				if ! location="$(type -p "xterm")" || [ -z "xterm" ]; then
@@ -84,18 +87,19 @@ install-xterm-dmenu() {
 
 						sudo pacman -S --noconfirm xterm
 
-					fi
-
 					# check if apt is installed
-					if which apt > /dev/null; then
+					elif which apt > /dev/null; then
 
 						sudo apt install -y xterm
 
+					else
+
+						echo " Your system is not Arch or Debian Based System"
 					fi
 
-				else
-					echo " nothing to do!"
-				fi; break ;;
+					else
+						echo " Nothing to do! Xterm is installed in your System"
+				fi ; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
@@ -115,18 +119,19 @@ install-xterm-dmenu() {
 
 						sudo pacman -S --noconfirm dmenu
 
-					fi
-
 					# check if apt is installed
-					if which apt > /dev/null; then
+					elif which apt > /dev/null; then
 
 						sudo apt install -y dmenu
 
+					else
+
+						echo " Your system is not Arch or Debian Based System"
 					fi
 
-				else
-					echo " nothing to do!"
-				fi; break ;;
+					else
+						echo " Nothing to do! dmenu is installed in your System"
+				fi ; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
