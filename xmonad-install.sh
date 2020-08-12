@@ -55,6 +55,10 @@ copy-files() {
 	echo " system account file has been copied" || echo " Not again!!"
 	echo ""
 
+	cp -af config-files/congis/dmenu-programs.sh $HOME/.xmonad/ &&
+	echo " dmenu custom file has been copied" || echo " No Wayyyyyy!!!"
+	echo ""
+
 	## Xmobar directory
 	### Check for dir, if not found create it using the mkdir ###
 	dldir2="$HOME/.config/xmobar"
