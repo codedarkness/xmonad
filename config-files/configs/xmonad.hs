@@ -128,7 +128,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
   , ((modMask, xK_q), kill )
   , ((modMask, xK_r), spawn $ "terminal -e ranger" )
-  , ((modMask, xK_o), spawn $ "$HOME/Documents/scripts/dmenu-programs.sh" )
+  , ((modMask, xK_o), spawn $ "$HOME/.xomnad/dmenu-programs.sh" )
   , ((modMask, xK_v), spawn $ "terminal -e vim" )
   , ((modMask, xK_0), spawn $ "$HOME/.xmonad/sysact.sh")
   , ((modMask, xK_Escape), spawn $ "xkill" )
