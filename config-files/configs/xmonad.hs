@@ -52,7 +52,7 @@ import qualified Data.Map as M
 import qualified Data.ByteString as B
 
 myModMask  = mod4Mask
-myTerminal = "terminal"
+myTerminal = "urxvt"
 
 mydefaults = def {
           normalBorderColor   = "#2F3D44"
@@ -122,29 +122,16 @@ myManageHook = composeAll . concat $
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
-  -- SUPER + FUNCTION KEYS
+  -- Keybindings
 
-  [ ((modMask, xK_e), spawn $ "atom" )
+  [ ((modMask, xK_Return), spawn $ myTerminal )
+  , ((modMask, xK_Escape), spawn $ "xkill" )
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
   , ((modMask, xK_q), kill )
-  , ((modMask, xK_r), spawn $ "terminal -e ranger" )
-  , ((modMask, xK_o), spawn $ "$HOME/Documents/scripts/dmenu-programs.sh" )
-  , ((modMask, xK_v), spawn $ "terminal -e vim" )
-  , ((modMask, xK_0), spawn $ "$HOME/.xmonad/sysact.sh")
-  , ((modMask, xK_Escape), spawn $ "xkill" )
-  , ((modMask, xK_Return), spawn $ myTerminal )
-
-  -- SUPER + FXX
-
-  , ((modMask, xK_F2), spawn $ "brave" )
-  , ((modMask, xK_F3), spawn $ "pcmanfm" )
-  , ((modMask, xK_F4), spawn $ "virtualbox" )
-  , ((modMask, xK_F12), spawn $ "blurlock" )
 
   -- SUPER + SHIFT KEYS
 
   , ((modMask .|. shiftMask , xK_Return ), spawn $ myTerminal)
-  , ((modMask .|. shiftMask , xK_o ), spawn $ "dmenu_recency")
   , ((modMask .|. shiftMask , xK_r ), spawn $ "xmonad --recompile && xmonad --restart")
   , ((modMask .|. shiftMask , xK_q ), kill)
   , ((modMask .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
@@ -154,7 +141,21 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
   , ((mod1Mask, xK_F3), spawn $ "xfce4-appfinder" )
 
-  --SCREENSHOTS
+  -- My Keybindings
+
+  , ((modMask, xK_F2), spawn $ "brave" )
+  , ((modMask, xK_F3), spawn $ "pcmanfm" )
+  , ((modMask, xK_F12), spawn $ "blurlock" )
+
+  , ((modMask, xK_r), spawn (myTerminal ++ " -e ranger" ))
+  , ((modMask, xK_v), spawn (myTerminal ++ " -e vim" ))
+  , ((modMask, xK_p), spawn (myTerminal ++ " -e pyradio"))
+  , ((modMask, xK_c), spawn (myTerminal ++ " -e calcurse"))
+  , ((modMask, xK_w), spawn $ myBrowser )
+
+  , ((modMask .|. shiftMask , xK_o ), spawn $ "dmenu_recency")
+  , ((modMask, xK_0), spawn $ "$HOME/.xmonad/sysact.sh")
+  , ((modMask, xK_o), spawn $ "$HOME/.xmonad/dmenu-programs.sh" )
 
   , ((0, xK_Print), spawn $ "i3-scrot")
 
@@ -166,11 +167,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   , ((0, xF86XK_MonBrightnessUp),  spawn $ "xbacklight -inc 5")
   , ((0, xF86XK_MonBrightnessDown), spawn $ "xbacklight -dec 5")
-
---  , ((0, xF86XK_AudioPlay), spawn $ "mpc toggle")
---  , ((0, xF86XK_AudioNext), spawn $ "mpc next")
---  , ((0, xF86XK_AudioPrev), spawn $ "mpc prev")
---  , ((0, xF86XK_AudioStop), spawn $ "mpc stop")
 
   , ((0, xF86XK_AudioPlay), spawn $ "playerctl play-pause")
   , ((0, xF86XK_AudioNext), spawn $ "playerctl next")
