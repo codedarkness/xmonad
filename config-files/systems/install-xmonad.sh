@@ -44,7 +44,7 @@ install-xmonad() {
 					# check if apt is installed
 					elif which apt > /dev/null; then
 
-						sudo apt install -y xmonad libghc-xmonad-contrib-dev xmobar ghc
+						sudo apt install -y xmonad libghc-xmonad-contrib-dev libghc-xmonad-dev xmobar ghc
 
 					else
 
