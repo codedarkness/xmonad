@@ -151,7 +151,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_v), spawn (myTerminal ++ " -e vim" ))
   , ((modMask, xK_p), spawn (myTerminal ++ " -e pyradio"))
   , ((modMask, xK_c), spawn (myTerminal ++ " -e calcurse"))
-  , ((modMask, xK_w), spawn $ myBrowser )
+  , ((modMask, xK_w), spawn $ "brave" )
 
   , ((modMask .|. shiftMask , xK_o ), spawn $ "dmenu_recency")
   , ((modMask, xK_0), spawn $ "$HOME/.xmonad/sysact.sh")

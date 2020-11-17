@@ -55,7 +55,7 @@ copy-files() {
 	echo " system account file has been copied" || echo " Not again!!"
 	echo ""
 
-	cp -af config-files/congis/dmenu-programs.sh $HOME/.xmonad/ &&
+	cp -af config-files/configs/dmenu-programs.sh $HOME/.xmonad/ &&
 	echo " dmenu custom file has been copied" || echo " No Wayyyyyy!!!"
 	echo ""
 
