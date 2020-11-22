@@ -44,7 +44,7 @@ install-xmonad() {
 					# check if apt is installed
 					elif which apt > /dev/null; then
 
-						sudo apt install -y xmonad libghc-xmonad-contrib-dev libghc-xmonad-dev xmobar ghc
+						sudo apt install -y xmonad libghc-xmonad-contrib-dev libghc-xmonad-dev xmobar xdotool ghc
 
 					else
 
@@ -153,7 +153,7 @@ change-terminal() {
 		read -p " Change Terminal [y - n] : " yn
 		case $yn in
 			[Yy]* )
-				read -p " Server user name for samba : " choice;
+				read -p " Whitch is the terminal : " choice;
 				sed -i 's+myTerminal = ".*"+myTerminal = "'$choice'"+g' config-files/configs/xmonad.hs &&
 				echo " Your terminal ($choice) has been changed" || echo " Upsss!"; break ;;
 			[Nn]* )
