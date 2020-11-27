@@ -21,13 +21,6 @@
 #
 # -----------------------------------------------------------------
 
-compton &
 nitrogen --restore &
-volumeicon &
-nm-applet &
 xfce4-power-manager &
-pamac-tray &
 xautolock -time 10 -locker blurlock &
-ff-theme-util &
-fix_xcursor &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

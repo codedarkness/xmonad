@@ -153,11 +153,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_c), spawn (myTerminal ++ " -e calcurse"))
   , ((modMask, xK_w), spawn $ "brave" )
 
-  , ((modMask .|. shiftMask , xK_o ), spawn $ "dmenu_recency")
+  , ((modMask .|. shiftMask , xK_o ), spawn $ "dmenu_run")
   , ((modMask, xK_0), spawn $ "$HOME/.xmonad/sysact.sh")
   , ((modMask, xK_o), spawn $ "$HOME/.xmonad/dmenu-programs.sh" )
 
-  , ((0, xK_Print), spawn $ "i3-scrot")
+  , ((0, xK_Print), spawn $ "dc-scrot")
 
   --MULTIMEDIA KEYS
 
