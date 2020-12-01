@@ -22,10 +22,6 @@
 # -----------------------------------------------------------------
 
 font="-fn Noto-12"
-nb="-nb #222D31"
-sb="-sb #222D31"
-sf="-sf #FAF9FA"
-nf="-nf #4D5656"
 
 terminal="urxvt"
 
@@ -43,7 +39,7 @@ Vim")
 
 choice=$(
 	echo -e "${options[@]}" |
-	dmenu -i -p 'Open Program: ' $font $nb $sb $sf $nf
+	dmenu -i -p 'Open Program: ' $font
 )
 
 case "$choice" in

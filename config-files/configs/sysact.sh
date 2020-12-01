@@ -23,10 +23,6 @@
 # -----------------------------------------------------------------
 
 font="-fn 'Noto-11'"
-nb="-nb #222D31"
-sb="-sb #222D31"
-sf="-sf #FAF9FA"
-nf="-nf #839192"
 
 declare options=("Cancel
 Lock-Screen
@@ -40,7 +36,7 @@ Suspen-Hibernate")
 
 choice=$(
 	echo -e "${options[@]}" |
-	dmenu -i -p 'Select an Option: ' $font $nb $sb $sf $nf
+	dmenu -i -p 'Select an Option: ' $font
 )
 
 case "$choice" in
