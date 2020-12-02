@@ -143,7 +143,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- My Keybindings
 
-  , ((modMask, xK_F2), spawn $ "brave" )
+  , ((modMask, xK_F2), spawn $ "firefox" )
   , ((modMask, xK_F3), spawn $ "pcmanfm" )
   , ((modMask, xK_F12), spawn $ "blurlock" )
 

@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------
 #
 #        FILE: dmenu-programs.sh
-#       USAGE: ./dmenu-programs.sh / dmenu_run
+#       USAGE: ./dmenu-programs.sh / dmenu_rum
 #
 # DESCRIPTION: Launcher most used gui and terminal programs
 #
@@ -25,15 +25,16 @@ font="-fn Noto-12"
 
 terminal="urxvt"
 
-declare options=("Brave
-Calcurse
+declare options=("AppFinder
 Gimp
-Htop
 LibreOffice
+Sigil
+Calibre
+FileManager
+Htop
 Mutt
 PyRadio
 Ranger
-Teamviewer
 Telegram
 Vim")
 
@@ -44,16 +45,17 @@ choice=$(
 
 case "$choice" in
 	quit)        echo "Program terminated." && exit 1 ;;
-	Brave)       choice=brave ;;
-	Calcurse)    exec $terminal -e calcurse ;;
+	AppFinder)	 choice=xfce4-appfinder ;;
 	Gimp)        choice=gimp ;;
-	Htop)        exec $terminal -e htop ;;
 	LibreOffice) choice=libreoffice ;;
+	Sigil) 		 choice=sigil ;;
+	Calibre)	 choice=calibre ;;
+	FileManager) choice=pcmanfm ;;
+	Htop)        exec $terminal -e htop ;;
 	Mutt)	     exec $terminal -e mutt ;;
 	PyRadio)     exec $terminal -e pyradio ;;
 	Ranger)	     exec $terminal -e ranger ;;
-	Teamviewer)  choice=teamviewer ;;
-	Telegram)    exec $terminal -e $HOME/.local/bin/telegramtui ;;
+	Telegram)    exec $terminal -e ~/.local/bin/telegramtui ;;
 	Vim)         exec $terminal -e vim ;;
 	*) exit 1 ;;
 esac

@@ -45,20 +45,6 @@ sed -i 's/, fgColor = ".*"/, fgColor = "#383A59"/g' $HOME/.config/xmobar/xmobarr
 echo " FG color has been changed" || echo " Not again!!!"
 echo ""
 
-## dmenu custom
-sed -i 's/nb="-nb #.*"/nb="-nb #1E1F29"/g' $HOME/.xmonad/sysact.sh &&
-sed -i 's/sb="-sb #.*"/sb="-sb #1E1F29"/g' $HOME/.xmonad/sysact.sh &&
-sed -i 's/nf="-nf #.*"/nf="-nf #383A59"/g' $HOME/.xmonad/sysact.sh &&
-echo " dmenu (sysact) colors has canged"
-echo ""
-
-## dmenu custom
-sed -i 's/nb="-nb #.*"/nb="-nb #1E1F29"/g' $HOME/.xmonad/dmenu-programs.sh &&
-sed -i 's/sb="-sb #.*"/sb="-sb #1E1F29"/g' $HOME/.xmonad/dmenu-programs.sh &&
-sed -i 's/nf="-nf #.*"/nf="-nf #383A59"/g' $HOME/.xmonad/dmenu-programs.sh &&
-echo " dmenu programs colors has canged" || echo " Upssss!!!!"
-echo ""
-
 ## change background color dnustrc
 sed -i 's/background\ = .*/background\ = \"#1E1F29"/g' $HOME/.config/dunst/dunstrc &&
 echo " dnust color scheme has been applied" || echo " No way!!!!"
