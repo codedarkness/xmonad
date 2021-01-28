@@ -39,7 +39,7 @@ install-xmonad() {
 					# check if pacman is installed
 					if which pacman > /dev/null; then
 
-						sudo pacman -S --noconfirm xmonad xmonad-contrib xmobar ghc
+						sudo pacman -S --noconfirm xmonad xmonad-contrib xmobar xdotool ghc
 
 					# check if apt is installed
 					elif which apt > /dev/null; then
